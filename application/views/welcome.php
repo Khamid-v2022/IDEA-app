@@ -18,7 +18,7 @@
                         </span>
                     </div>
                 </div>
-                <div>
+                <div class="idea-detail">
                     <?=$item['detail']?>
                 </div>
                 <div class="idea-footer d-flex justify-content-between pt-3">

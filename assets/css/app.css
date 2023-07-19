@@ -37,6 +37,13 @@ body {
 
 }
 
+.idea-item .idea-detail {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
 .idea-item .avatar-user-img, .comment-item .avatar-user-img {
     width: 40px;
     height: auto;

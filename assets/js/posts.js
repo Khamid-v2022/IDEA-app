@@ -103,12 +103,3 @@ function submit_comment(form_el){
             }
     })
 }
-
-
-function removeTags(input) {
-    // Regular expression to match script and HTML tags
-    const tagRegex = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>|<\/?[^>]+(>|$)/gi;
-
-    // Replace script and HTML tags with an empty string
-    return input.replace(tagRegex, '');
-}
