@@ -23,10 +23,10 @@
                 </div>
                 <div class="idea-footer d-flex justify-content-between pt-3">
                     <div>
-                        <a href="<?=site_url()?>post/show_post/<?=$item['id']?>" class="idea-comment-btn"><?=$item['comment_count']?><i class="fa fa-comment-o ms-1"></i></a>
-                        <a href="<?=site_url()?>post/show_post/<?=$item['id']?>" class="idea-like-btn ms-2"><?=$item['like_count']?><i class="fa fa-thumbs-o-up ms-1"></i></a>
+                        <a href="<?=site_url()?>welcome/show_post/<?=$item['id']?>" class="idea-comment-btn"><?=$item['comment_count']?><i class="fa fa-comment-o ms-1"></i></a>
+                        <a href="<?=site_url()?>welcome/show_post/<?=$item['id']?>" class="idea-like-btn ms-2"><?=$item['like_count']?><i class="fa fa-thumbs-o-up ms-1"></i></a>
                     </div>
-                    <a href="<?=site_url()?>post/show_post/<?=$item['id']?>">See more</a>
+                    <a href="<?=site_url()?>welcome/show_post/<?=$item['id']?>">See more</a>
                 </div>
             </div>
         <?php 

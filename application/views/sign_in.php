@@ -21,7 +21,7 @@
                     <button type="submit" class="btn btn-primary w-100 mb-4">Sign in</button>
                 </div>
                 <div>
-                    Do you don't have an account?
+                    Don't have an account?
                     <a href="<?=site_url()?>sign_up">Sign Up</a>
                 </div>
             </form>

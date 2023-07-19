@@ -36,29 +36,32 @@ class Post extends MY_Controller {
 		$this->generate_json("failed", false);
 	}
 
-	public function show_post($post_id){
-		$data['post'] = $this->Post_m->get_post($post_id);
-		if(!$data['post'])
-			redirect('/');
-		$comments = $this->Comment_m->get_comments($post_id);
 
-		$main_comments = [];
-		$sub_comments = [];
+	// Not using because post can be showed without login
+	
+	// public function show_post($post_id){
+	// 	$data['post'] = $this->Post_m->get_post($post_id);
+	// 	if(!$data['post'])
+	// 		redirect('/');
+	// 	$comments = $this->Comment_m->get_comments($post_id);
 
-		foreach($comments as $comment){
-			if(!$comment['parent_comment_id']){
-				array_push($main_comments, $comment);
-			} else {
-				array_push($sub_comments, $comment);
-			}
-		}
+	// 	$main_comments = [];
+	// 	$sub_comments = [];
 
-		$data['main_comments'] = $main_comments;
-		$data['sub_comments'] = $sub_comments;
+	// 	foreach($comments as $comment){
+	// 		if(!$comment['parent_comment_id']){
+	// 			array_push($main_comments, $comment);
+	// 		} else {
+	// 			array_push($sub_comments, $comment);
+	// 		}
+	// 	}
 
-		$this->load->view('header');
-		$this->load->view('post_show', $data);
-	}
+	// 	$data['main_comments'] = $main_comments;
+	// 	$data['sub_comments'] = $sub_comments;
+
+	// 	$this->load->view('header');
+	// 	$this->load->view('post_show', $data);
+	// }
 
 	public function submit_comment(){
 		$req = $this->input->post();

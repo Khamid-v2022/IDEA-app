@@ -37,13 +37,19 @@
 
         <!-- Discussion -->
         <div class="discusstion p-4">
-            <h4>Discusstion (<?=$post['comment_count']?>)</h4>
-            <form id="submit_comment_form">
-                <textarea class="form-control" rows="8" placeholder="Write a comment..." id="comment_input" required></textarea>
-                <div class="mt-3">
-                    <button class="btn btn-outline-primary" type="submit">Post Comment</button>
-                </div>
-            </form>
+            <div class="flex items-center mb-6">
+                <label class="font-bold " style="font-size: 24px;">Discusstion (<?=$post['comment_count']?>)</label>
+                <?php if(isset($this->session->user_data) && $this->session->user_data['is_loggedin']){ ?>
+                    <form id="submit_comment_form">
+                        <textarea class="form-control" rows="8" placeholder="Write a comment..." id="comment_input" required></textarea>
+                        <div class="mt-3">
+                            <button class="btn btn-outline-primary" type="submit">Post Comment</button>
+                        </div>
+                    </form>
+                <?php } else {?>
+                    <a class="text-muted ms-4" href="<?=site_url()?>sign_in">Sign in to comment</a>
+                <?php }?>
+            </div>
 
             <div class="comments mt-4">
                 <?php 
@@ -59,18 +65,20 @@
                         <div class="py-3">
                             <?=$main_comment['content']?>
                         </div>
-                        <div>
-                            <a href="javascript:;" class="text-muted comment-reply-btn"><i class="fa fa-comment-o me-1"></i> Reply</a>
-                        </div>
-                        <div class="each-comment-box d-none mt-4">
-                            <form class="each-comment-form" data-comment_parent_id="<?=$main_comment['id']?>">
-                                <textarea class="form-control" rows="8" placeholder="Write a comment..." required></textarea>
-                                <div class="d-flex justify-content-between mt-3">
-                                    <button class="btn btn-outline-primary" type="submit">Post Comment</button>
-                                    <button class="btn btn-outline-secondary reply-cancel-btn" type="button">Cancel</button>
-                                </div>
-                            </form>
-                        </div>
+                        <?php if(isset($this->session->user_data) && $this->session->user_data['is_loggedin']){ ?>
+                            <div>
+                                <a href="javascript:;" class="text-muted comment-reply-btn"><i class="fa fa-comment-o me-1"></i> Reply</a>
+                            </div>
+                            <div class="each-comment-box d-none mt-4">
+                                <form class="each-comment-form" data-comment_parent_id="<?=$main_comment['id']?>">
+                                    <textarea class="form-control" rows="8" placeholder="Write a comment..." required></textarea>
+                                    <div class="d-flex justify-content-between mt-3">
+                                        <button class="btn btn-outline-primary" type="submit">Post Comment</button>
+                                        <button class="btn btn-outline-secondary reply-cancel-btn" type="button">Cancel</button>
+                                    </div>
+                                </form>
+                            </div>
+                        <?php }?>
                     </div>
 
                     <?php 
@@ -87,18 +95,20 @@
                             <div class="py-3">
                                 <?=$sub_comment['content']?>
                             </div>
-                            <div>
-                                <a href="javascript:;" class="text-muted comment-reply-btn"><i class="fa fa-comment-o me-1"></i> Reply</a>
-                            </div>
-                            <div class="each-comment-box d-none mt-4">
-                                <form class="each-comment-form" data-comment_parent_id="<?=$main_comment['id']?>">
-                                    <textarea class="form-control" rows="8" placeholder="Write a comment..." required></textarea>
-                                    <div class="d-flex justify-content-between mt-3">
-                                        <button class="btn btn-outline-primary" type="submit">Post Comment</button>
-                                        <button class="btn btn-outline-secondary reply-cancel-btn" type="button">Cancel</button>
-                                    </div>
-                                </form>
-                            </div>
+                            <?php if(isset($this->session->user_data) && $this->session->user_data['is_loggedin']){ ?>
+                                <div>
+                                    <a href="javascript:;" class="text-muted comment-reply-btn"><i class="fa fa-comment-o me-1"></i> Reply</a>
+                                </div>
+                                <div class="each-comment-box d-none mt-4">
+                                    <form class="each-comment-form" data-comment_parent_id="<?=$main_comment['id']?>">
+                                        <textarea class="form-control" rows="8" placeholder="Write a comment..." required></textarea>
+                                        <div class="d-flex justify-content-between mt-3">
+                                            <button class="btn btn-outline-primary" type="submit">Post Comment</button>
+                                            <button class="btn btn-outline-secondary reply-cancel-btn" type="button">Cancel</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            <?php }?>
                         </div>
 
                 <?php

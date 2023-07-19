@@ -7,6 +7,7 @@ class Welcome extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('Post_m');   
+        $this->load->model('Comment_m');
         $this->load->library('pagination'); 
     }
 
@@ -51,6 +52,30 @@ class Welcome extends CI_Controller {
         $this->load->view('header');
         $this->load->view('welcome', $data);
         $this->load->view('footer');
+    }
+
+    public function show_post($post_id){
+        $data['post'] = $this->Post_m->get_post($post_id);
+        if(!$data['post'])
+            redirect('/');
+        $comments = $this->Comment_m->get_comments($post_id);
+
+        $main_comments = [];
+        $sub_comments = [];
+
+        foreach($comments as $comment){
+            if(!$comment['parent_comment_id']){
+                array_push($main_comments, $comment);
+            } else {
+                array_push($sub_comments, $comment);
+            }
+        }
+
+        $data['main_comments'] = $main_comments;
+        $data['sub_comments'] = $sub_comments;
+
+        $this->load->view('header');
+        $this->load->view('post_show', $data);
     }
     
 }
