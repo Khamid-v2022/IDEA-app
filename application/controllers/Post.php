@@ -6,9 +6,9 @@ class Post extends MY_Controller {
 	public function __construct()
     {
         parent::__construct('');
-        $this->load->model('job_m');
-        $this->load->model('post_m');
-        $this->load->model('comment_m');
+        $this->load->model('Job_m');
+        $this->load->model('Post_m');
+        $this->load->model('Comment_m');
     }
 
 	public function index()
@@ -16,7 +16,7 @@ class Post extends MY_Controller {
 	}
 
 	public function new(){
-		$data['jobs'] = $this->job_m->get_list();
+		$data['jobs'] = $this->Job_m->get_list();
 		$this->load->view('header');
 		$this->load->view('post_new', $data);
 	}
@@ -25,7 +25,7 @@ class Post extends MY_Controller {
 		$req = $this->input->post();
 
 		$req['user_id'] = $this->session->user_data['id'];
-		$exist = $this->post_m->add_item($req);
+		$exist = $this->Post_m->add_item($req);
 		if($exist){
 			$this->generate_json("Added", true);
 			return;
@@ -34,10 +34,10 @@ class Post extends MY_Controller {
 	}
 
 	public function show_post($post_id){
-		$data['post'] = $this->post_m->get_post($post_id);
+		$data['post'] = $this->Post_m->get_post($post_id);
 		if(!$data['post'])
 			redirect('/');
-		$comments = $this->comment_m->get_comments($post_id);
+		$comments = $this->Comment_m->get_comments($post_id);
 
 		$main_comments = [];
 		$sub_comments = [];
@@ -61,7 +61,7 @@ class Post extends MY_Controller {
 		$req = $this->input->post();
 
 		$req['user_id'] = $this->session->user_data['id'];
-		$exist = $this->comment_m->add_item($req);
+		$exist = $this->Comment_m->add_item($req);
 		if($exist){
 			$this->generate_json("Added", true);
 			return;

@@ -6,7 +6,7 @@ class Auth extends CI_Controller {
 	public function __construct()
     {
         parent::__construct();
-        $this->load->model('auth_m');
+        $this->load->model('Auth_m');
     }
 
 	public function index()
@@ -29,7 +29,7 @@ class Auth extends CI_Controller {
 		$req = $this->input->post();
 
 		// check aleady exist
-		$exist = $this->auth_m->get_item(array('email' => $req['email']));
+		$exist = $this->Auth_m->get_item(array('email' => $req['email']));
 		if($exist){
 			echo 'exist';
 			return;
@@ -38,7 +38,7 @@ class Auth extends CI_Controller {
 	    $req['email'] = strtolower($req['email']);
 		$req['password'] = sha1($req['password']);
 		
-		$user_id = $this->auth_m->add_item($req);
+		$user_id = $this->Auth_m->add_item($req);
 		if($user_id){
 			echo 'yes';
 			return;
@@ -52,7 +52,7 @@ class Auth extends CI_Controller {
 	    $where['email'] = strtolower($req['email']);
 		$where['password'] = sha1($req['password']);
 		
-		$user = $this->auth_m->get_item($where);
+		$user = $this->Auth_m->get_item($where);
 		if(empty($user)){
 			echo 'no';
 			return;
@@ -73,7 +73,7 @@ class Auth extends CI_Controller {
 
 	// 	$where['admin_id'] = strtolower($req['admin_id']);
 		
-	// 	$user = $this->auth_m->get_item($where);
+	// 	$user = $this->Auth_m->get_item($where);
 	// 	if(empty($user)){
 	// 		echo 'no';
 	// 		return;
@@ -87,7 +87,7 @@ class Auth extends CI_Controller {
 	// 		// reset password
 	// 		$update_info['password'] = sha1($new_password);
 
-	// 		$this->auth_m->update_item($update_info, $where);
+	// 		$this->Auth_m->update_item($update_info, $where);
 	// 		echo 'yes';
 	// 	}else{
 	// 		echo 'failed';	

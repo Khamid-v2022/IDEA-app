@@ -6,15 +6,13 @@ class Welcome extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('post_m');   
+        $this->load->model('Post_m');   
         $this->load->library('pagination'); 
-
-        
     }
 
     public function index($page_number = 1)
     {
-        $total_posts = $this->post_m->get_total_count();
+        $total_posts = $this->Post_m->get_total_count();
 
         // page nation
         $config['base_url'] = site_url() . 'welcome/index'; // Replace with your base URL
@@ -46,7 +44,7 @@ class Welcome extends CI_Controller {
         
         $data["paginetionlinks"]   = $this->pagination->create_links();
 
-        $list = $this->post_m->get_list_by_page($config['per_page'], $offset);
+        $list = $this->Post_m->get_list_by_page($config['per_page'], $offset);
 
         $data['list'] = $list;
 

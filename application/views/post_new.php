@@ -33,13 +33,13 @@
 
                 <div class="mb-4">
                     <label class="form-label" for="post_title">Title</label>
-                    <input type="text" id="post_title" class="form-control" required />
+                    <input type="text" id="post_title" class="form-control" placeholder="Something short & descriptive" required />
                 </div>
 
                 <!-- Password input -->
                 <div class="mb-4">
                     <label class="form-label" for="post_detail">Tell Us More</label>
-                    <textarea id="post_detail" class="form-control" rows="10" required /></textarea>
+                    <textarea id="post_detail" class="form-control" rows="10" placeholder="Tell us as much as you want about the project, and anything relevant someone you would work with" required /></textarea>
                 </div>
 
                 <div class="mb-4">
