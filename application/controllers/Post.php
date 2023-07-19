@@ -25,6 +25,9 @@ class Post extends MY_Controller {
 		$req = $this->input->post();
 
 		$req['user_id'] = $this->session->user_data['id'];
+		$req['title'] = strip_tags($req['title']);
+		$req['detail'] = strip_tags($req['detail']);
+		
 		$exist = $this->Post_m->add_item($req);
 		if($exist){
 			$this->generate_json("Added", true);
@@ -61,6 +64,8 @@ class Post extends MY_Controller {
 		$req = $this->input->post();
 
 		$req['user_id'] = $this->session->user_data['id'];
+		$req['content'] = strip_tags($req['content']);
+
 		$exist = $this->Comment_m->add_item($req);
 		if($exist){
 			$this->generate_json("Added", true);
