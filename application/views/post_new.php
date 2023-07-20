@@ -1,7 +1,7 @@
 <script type="text/javascript" src="<?=base_url()?>assets/js/posts.js"></script>
 <section class="main-section">
     <div class="container">
-        <div class="m-auto" style="max-width: 800px;">
+        <div class="m-auto" style="max-width: 700px;">
             <form id="new_post_form">
                 <!-- Email input -->
                 <div class="row">

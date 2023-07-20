@@ -1,6 +1,6 @@
 <section class="main-section">
     <div class="main-page">
-        <div class="container mx-auto px-5 flex-column" style="max-width: 800px;">
+        <div class="container mx-auto px-5 flex-column" style="max-width: 700px;">
             <h4 class="fw-bold mb-3"><?=$title?></h4>  
             <?php 
             foreach($list as $item) { ?>
@@ -44,7 +44,7 @@
                         </a>
                     </div>
                     <hr>
-                    
+
                     <div class="idea-footer">
                         <img class="avatar-user-img small-avatar me-5" src="<?=base_url()?>assets/img/avatar.png" alt="Avatar">
                         <input type="text" class="form-control form-control-sm colored-control" aria-label="Dollar amount (with dot and two decimal places)" placeholder="Write your comment">

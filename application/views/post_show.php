@@ -1,7 +1,7 @@
 <script type="text/javascript" src="<?=base_url()?>assets/js/posts.js"></script>
 <section class="main-section">
     <div class="post-show-page">
-        <div class="container mx-auto px-5 flex-column" style="max-width: 800px;">  
+        <div class="container mx-auto px-5 flex-column" style="max-width: 700px;">  
 
             <!-- Post Content -->
             <div class="idea-item">

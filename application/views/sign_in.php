@@ -63,8 +63,8 @@
 
                 <div class="d-flex justify-content-between">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="remember_me">
-                        <label class="form-check-label" for="remember_me">
+                        <input class="form-check-input" type="checkbox" value="" id="remember_me" checked>
+                        <label class="form-check-label" for="remember_me" >
                             Remember Me
                         </label>
                     </div>
