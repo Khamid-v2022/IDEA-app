@@ -1,7 +1,10 @@
 body {
     margin:  0;
     color: #B0B7C3;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
 }
+
 @font-face {
     font-family: 'Dancing Script Regular';
     font-style: normal;
@@ -18,13 +21,36 @@ body {
 /* Global  */
 h1, h2, h3, h4, h5 {
     color: black;
+    font-weight: 600;
 }
+
+h3 {
+    font-size: 28px;
+}
+
+h4 {
+    font-size: 24px;
+}
+
+h5 {
+    font-size: 20px;
+}
+
+h6 {
+    font-size: 14px;
+}
+
+small, .small-font {
+    font-size: 12px;
+}
+
 .text-main-color {
     color: #B0B7C3!important;
 }
 .no-color {
     color: unset!important;
 }
+
 .btn {
     padding: 12px 30px;
     border-radius: 15px;
@@ -91,6 +117,13 @@ h1, h2, h3, h4, h5 {
     padding-left: 0px;
     border-radius: 0 15px 15px 0!important;
 }*/
+
+.form-check .form-check-input {
+    font-size: 18px;
+}
+.form-check-label {
+    font-size: 16px;
+}
 
 .separator {
     border-top: 1px solid #FAFBFC;
@@ -186,11 +219,10 @@ h1, h2, h3, h4, h5 {
 
 .idea-item .idea-action-btns a {
     text-decoration: none;
-    font-size: 16px;
 }
 
 .idea-item .idea-action-btns i {
-    font-size: 16px;
+    font-size: 14px;
 }
 
 

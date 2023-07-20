@@ -1,11 +1,11 @@
     <script type="text/javascript" src="<?=base_url()?>assets/js/auth.js"></script>
 
-    <div class="container mt-4">
-        <div class="middle-wrapper mx-auto" style="max-width: 500px; margin-top: 100px;">
+    <div class="container mt-4" style='font-family: "Inter", sans-serif;'>
+        <div class="middle-wrapper mx-auto" style="max-width: 540px; margin-top: 150px;">
             <form id="signup_form">
                  <div class="text-center">
-                    <h3><b>Registration</b></h3>
-                    <h6 class="text-muted mt-3">Create an account to continue!</h6>
+                    <h3 style="font-size: 26px"><b>Registration</b></h3>
+                    <h6 class="text-muted mt-3" style="font-size: 18px">Create an account to continue!</h6>
                 </div>
                 <div class="my-4 d-flex justify-content-between">
                     <button class="btn btn-secondary">
@@ -77,7 +77,7 @@
                 <div class="my-4">
                     <button type="submit" class="btn btn-primary w-100">Sign Up</button>
                 </div>
-                <div class="text-center">
+                <div class="text-center" style="font-size: 16px;">
                     Already a memeber?
                     <a class="text-decoration-none" href="<?=site_url()?>sign_in"> Sign In</a>
                 </div>

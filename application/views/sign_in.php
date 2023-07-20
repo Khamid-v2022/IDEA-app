@@ -1,11 +1,11 @@
     <script type="text/javascript" src="<?=base_url()?>assets/js/auth.js"></script>
 
-    <div class="container mt-4">
-        <div class="middle-wrapper mx-auto" style="max-width: 500px; margin-top: 100px;">
+    <div class="container mt-4" style='font-family: "Inter", sans-serif;'>
+        <div class="middle-wrapper mx-auto" style="max-width: 540px; margin-top: 150px;">
             <form id="signin_form">
                 <div class="text-center">
-                    <h3><b>Sign In</b></h3>
-                    <h6 class="text-muted mt-3">Welcome back!</h6>
+                    <h3 style="font-size: 26px"><b>Sign In</b></h3>
+                    <h6 class="text-muted mt-3" style="font-size: 18px">Welcome back!</h6>
                 </div>
                 <div class="my-4 d-flex justify-content-between">
                     <button class="btn btn-secondary">
@@ -68,7 +68,7 @@
                             Remember Me
                         </label>
                     </div>
-                    <a class="no-color text-decoration-none" href="javascript:;" data-bs-toggle="modal" data-bs-target="#requestModal">Forgot Password?</a>    
+                    <a class="no-color text-decoration-none" href="javascript:;" data-bs-toggle="modal" data-bs-target="#requestModal" style="font-size: 16px">Forgot Password?</a>    
                 </div>
 
                 <!-- Submit button -->
@@ -76,7 +76,7 @@
                     <button type="submit" class="btn btn-primary w-100">Sign in</button>
                 </div>
 
-                <div class="text-center">
+                <div class="text-center"  style="font-size: 16px;">
                     Don't have an account? 
                     <a class="text-decoration-none" href="<?=site_url()?>sign_up">Sign Up</a>
                 </div>

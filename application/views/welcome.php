@@ -3,7 +3,7 @@
 <section class="main-section">
     <div class="main-page">
         <div class="container mx-auto px-5 flex-column" style="max-width: 700px;">
-            <h4 class="fw-bold mb-3"><?=$title?></h4>  
+            <h3 class="mb-3"><?=$title?></h3>  
             <?php 
             foreach($list as $item) { ?>
                 <div class="idea-item">
@@ -14,7 +14,7 @@
                             </div>
                             <div class="ms-3">
                                 <h6 class="text-muted mb-0"><?=$item['full_name']?></h6>
-                                <span class="">
+                                <span class="small-font">
                                     <?=$item['created_at']?>
                                 </span>
                             </div>
@@ -25,22 +25,22 @@
                     </div>
                     
                     <div class="idea-content py-4">
-                        <h5><?=$item['title']?></h5>
+                        <h4><?=$item['title']?></h4>
                         <div class="idea-detail">
                             <?=$item['detail']?>
                         </div>
                     </div>
 
                     <div class="idea-action-btns d-flex justify-content-between">
-                        <a class="text-primary" href="<?=site_url()?>welcome/show_post/<?=$item['id']?>" class="">
+                        <a class="text-primary small-font" href="<?=site_url()?>welcome/show_post/<?=$item['id']?>" class="">
                             <i class="fa fa-heart me-1"></i>
                             <?=$item['like_count']?> Likes
                         </a>
-                        <a class="no-color" href="<?=site_url()?>welcome/show_post/<?=$item['id']?>" class="">
+                        <a class="no-color small-font" href="<?=site_url()?>welcome/show_post/<?=$item['id']?>" class="">
                             <i class="fa fa-comments-o me-1"></i>
                             <span class="comment-count"><?=$item['comment_count']?></span> Comments
                         </a>
-                        <a class="no-color" href="<?=site_url()?>welcome/show_post/<?=$item['id']?>">
+                        <a class="no-color small-font" href="<?=site_url()?>welcome/show_post/<?=$item['id']?>">
                             <i class="fa fa-share me-1"></i>
                             0 Share
                         </a>
