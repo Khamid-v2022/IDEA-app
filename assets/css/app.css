@@ -1,5 +1,6 @@
 body {
     margin:  0;
+    color: #B0B7C3;
 }
 @font-face {
     font-family: 'Dancing Script Regular';
@@ -14,9 +15,124 @@ body {
     src: local('Dancing Script Bold'), url('DancingScript-Bold.woff') format('woff');
 }
 
+/* Global  */
+h1, h2, h3, h4, h5 {
+    color: black;
+}
+.text-main-color {
+    color: #B0B7C3!important;
+}
+.no-color {
+    color: unset!important;
+}
+.btn {
+    padding: 12px 30px;
+    border-radius: 15px;
+    font-size: 16px;
+}
+.btn-secondary {
+    background-color: #FAFBFC;
+    color: #B0B7C3;
+    border-color: #FAFBFC;
+}
+
+.form-control, .form-select {
+    padding: 12px 18px;
+    border-radius: 15px;
+    color: unset;
+}
+
+.form-select {
+    color: black;
+}
+
+.form-control:focus, .form-select:focus {
+    box-shadow: unset;
+}
+
+.colored-control{
+    background-color: #FAFBFC;
+}
+
+.form-control::placeholder {
+    color: unset;
+}
+
+.form-control:focus::placeholder {
+  color: gray;
+}
+
+.form-control.form-control-sm {
+    padding: 0.25rem 0.5rem;
+    border-radius: 8px;
+}
+
+.input-group-text {
+    border-radius: 15px;
+    background-color: unset;
+    border-right: none;
+    color: unset;
+}
+
+.input-group-text i {
+    font-size: 18px;
+}
+
+.input-group>.form-control {
+    border-left: none;
+    padding-left: 0px;
+    border-radius: 0 15px 15px 0!important;
+}
+
+.separator {
+    border-top: 1px solid #FAFBFC;
+    text-align: center;
+    position: relative;
+}
+.separator span {
+    position: absolute;
+    top: -24px;
+    left: calc(50% - 24px);
+    background: white;
+    padding: 10px;
+}
+
+.modal-content {
+    border-radius: 15px;
+}
+
+/* Pagenation */
+.page-link {
+    margin-right: 8px;
+    border-radius: 8px;
+}
+.page-item:last-child .page-link {
+    border-radius: 8px;
+}
+.page-item:first-child .page-link {
+    border-radius: 8px;
+}
+
+.page-link a {
+    color: black;
+}
+
+/*  Pages */
+.navbar-wrapper {
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    z-index: 100;
+    top: 0px;
+}
+
 .brand-logo {
-    height: 50px;
-    width: auto;
+    width: 182px;
+    height: auto;
+}
+
+.navbar-wrapper .search-box-wrapper {
+    min-width: 400px;
 }
 
 .avatar-menu-img {
@@ -24,19 +140,21 @@ body {
     width: auto;
 }
 
+.main-section {
+    background-color: #FAFBFC;
+    padding-top: 112px;
+    padding-bottom: 30px;
+    min-height: 100vh;
+}
+
 .idea-item {
-/*    border: 1px solid gray;*/
-    border-radius: 5px;
-    margin-bottom: 30px;
-    padding: 16px;
-
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border: 1px solid #F1F1F1;
+    border-radius: 16px;
+    margin-bottom: 16px;
+    padding: 24px 30px;
+    background-color: white;
+/*    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;*/
 }
-
-.idea-item .idea-header {
-
-}
-
 .idea-item .idea-detail {
     overflow: hidden;
     display: -webkit-box;
@@ -45,19 +163,26 @@ body {
 }
 
 .idea-item .avatar-user-img, .comment-item .avatar-user-img {
-    width: 40px;
+    width: 36px;
     height: auto;
     border-radius: 50%;
 }
 
-.idea-item .idea-comment-btn, .idea-item .idea-like-btn {
-    color: black;
-    text-decoration: none;
-    font-size: 20px;
+.idea-item .idea-footer {
+    display: flex;
 }
 
-.idea-item .idea-footer i {
-    font-size: 20px;
+.idea-item .avatar-user-img.small-avatar {
+    width: 30px;
+}
+
+.idea-item .idea-action-btns a {
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.idea-item .idea-action-btns i {
+    font-size: 16px;
 }
 
 
@@ -68,11 +193,19 @@ body {
     color: black;
 }
 
+.comments {
+    overflow: hidden;
+}
+
 .post-show-page .comment-item {
-    background-color: #eee;
-    border-radius: 8px;
-    margin-bottom: 16px;
+    background-color: #FAFBFC;
+/*    margin-bottom: 16px;*/
     padding: 16px;
+    color: #636E95;
+    z-index: 1;
+    position: relative;
+    border-bottom: 1px solid white;
+    overflow: hidden;
 }
 .post-show-page .comment-item .comment-reply-btn {
     text-decoration: none;
@@ -82,8 +215,21 @@ body {
     font-size: 20px;
 }
 
-.comment-item.sub-comment-item {
-    margin-left: 50px;
+.comment-item .sub-comment-item {
+    padding-left: 65px;
+    margin-top: 24px;
+    position: relative;
+}
+
+.comment-item.exist-sub-comment:before {
+    content: " ";
+    display: block;
+    height: calc(100% - 85px);
+    border-right: 2px solid #eee;
+    position: absolute;
+    left: 35px;
+    top: 70px;
+    z-index: 0;
 }
 
 .pagination li a {

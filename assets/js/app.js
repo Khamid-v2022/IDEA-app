@@ -1,16 +1,31 @@
 $(function() { 
+    $(".new-project-btn").on("click", function(){
+        const url = site_url + 'post/get_jobs';
+        $.get(url, function(resp){
+            resp = JSON.parse(resp);
+            const jobs = resp.msg.jobs;
+            let html = "";
+
+            jobs.forEach((job) => {
+                html += "<option value='" + job.id + "'>" + job.job_name + "</option>";
+            })
+
+            $("#m_my_job").html(html);
+            $("#m_looking_job").html(html);
+            $("#new_project_modal").modal('toggle');
+        }) 
+    })
 
 
-    $("#pray_form").submit(function(e){
+    // New Post page submit post 
+    $("#m_new_post_form").submit(function(e){
         e.preventDefault();
-        $(".dpm-response").addClass('d-none');
-        $(".dpm-response .alert").addClass('d-none');
-        if (!event.target.checkValidity()) {
+       
+        if (!e.target.checkValidity()) {
             return false;
         }
-        submit();
+        submit_post();
     })
-   
 });
 
 function numberWithCommas(x) {
@@ -19,56 +34,25 @@ function numberWithCommas(x) {
     return parts.join(".");
 }
 
-function submit(){
-    $(".request-form").addClass('d-none');
-    $(".loader").removeClass('d-none');
+function submit_post(){
+    var url = site_url + 'post/submit_post';
 
-    $(".dpm-response").removeClass('d-none');
-
-    // var email_verify_url = "https://disposable.debounce.io/?email=" + $("#email").val();
-    var email_verify_url = site_url + "welcome/verify_email";
-    
-    $(".alert-info").removeClass('d-none');
-    $.post(email_verify_url, {
-        email: $("#email").val()
-    }, function(resp){ 
-        if(resp == "Valid"){ 
-            $(".dpm-response .alert").addClass('d-none');
-            $(".dpm-response .alert-success").removeClass('d-none');
-
-            let current_url = window.location;
-            let params = (new URL(current_url)).searchParams;
-            let tid = params.get('tid');
-            
-            var url = site_url + 'welcome/submit_pray';
-            
-            $.post(url, {
-                    ip_address: $("#ip_address").val(),
-                    email: $("#email").val(),
-                    first_name: $("#first_name").val(),
-                    note: $("#note").val(),
-                    is_publish: $('#display').prop('checked')?"yes":"no",
-                    tag: tid
-                }, 
-                function(resp){
-                    // $(".loader").addClass('d-none');
-                    // $(".request-form").removeClass('d-none');
-                    // if(resp == 'ok'){
-                        // window.location.href = "https://angelgraceblessing.com/prayer-thank-you/";
-                    // }
-                    // else{
-                    //     $(".request-form").removeClass('d-none');
-                    //     // $('.alert-danger').html("");
-                    //     // $(".dpm-response").removeClass('d-none');
-                    // }
-            })
-            window.location.href = "https://angelgraceblessing.com/prayer-thank-you/";
-        } else {
-            $(".loader").addClass('d-none');
-            $(".request-form").removeClass('d-none');
-            
-            $(".dpm-response .alert").addClass('d-none');
-            $(".dpm-response .alert-danger").removeClass('d-none');
-        }
-    })   
+    $.post(url, 
+        {
+            my_job_id: $("#m_my_job").val(),
+            looking_job_id: $("#m_looking_job").val(),
+            title: $("#m_post_title").val(),
+            detail: $("#m_post_detail").val()
+        }, function(resp){
+            resp = JSON.parse(resp);
+            if(resp.status)
+                location.href= site_url + 'welcome/my_project';
+            else{
+                swal({
+                    title: "",
+                    text: "Something went wrong. Please try again later",
+                    icon: "warning"
+                });
+            }
+    })
 }

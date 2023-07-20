@@ -37,8 +37,9 @@ class MY_Model extends CI_Model
     }
 
     public function get_total_count($where=NULL){
-        $this->db->where($where);
-        return $this->db->count_all($this->table);
+        if($where)
+            $this->db->where($where);
+        return $this->db->get($this->table)->num_rows();
     }
 }
 

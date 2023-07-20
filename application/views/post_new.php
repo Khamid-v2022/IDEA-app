@@ -1,6 +1,6 @@
-    <script type="text/javascript" src="<?=base_url()?>assets/js/posts.js"></script>
-
-    <div class="container mt-4">
+<script type="text/javascript" src="<?=base_url()?>assets/js/posts.js"></script>
+<section class="main-section">
+    <div class="container">
         <div class="m-auto" style="max-width: 800px;">
             <form id="new_post_form">
                 <!-- Email input -->
@@ -58,6 +58,4 @@
             </form>
         </div>
     </div>
-    
-</body> 
-</html>
+</section>

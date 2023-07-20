@@ -15,6 +15,11 @@ class Auth extends CI_Controller {
 
 	public function signin_page()
 	{
+		if(isset($this->session->user_data) && $this->session->user_data['is_loggedin']){
+            redirect('/');
+            return;
+        }
+        
 		$this->load->view('header');
 		$this->load->view('sign_in');
 	}

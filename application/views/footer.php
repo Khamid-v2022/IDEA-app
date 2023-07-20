@@ -1,4 +1,3 @@
-<section class="footer p-5 text-center">
-	
-</section>
+<div class="footer p-2 text-center">
+</div>
 </html>
