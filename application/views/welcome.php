@@ -1,3 +1,5 @@
+<script type="text/javascript" src="<?=base_url()?>assets/js/welcome.js"></script>
+
 <section class="main-section">
     <div class="main-page">
         <div class="container mx-auto px-5 flex-column" style="max-width: 700px;">
@@ -30,34 +32,39 @@
                     </div>
 
                     <div class="idea-action-btns d-flex justify-content-between">
-                        <a class="text-primary" href="<?=site_url()?>post/show_post/<?=$item['id']?>" class="">
+                        <a class="text-primary" href="<?=site_url()?>welcome/show_post/<?=$item['id']?>" class="">
                             <i class="fa fa-heart me-1"></i>
                             <?=$item['like_count']?> Likes
                         </a>
-                        <a class="no-color" href="<?=site_url()?>post/show_post/<?=$item['id']?>" class="">
+                        <a class="no-color" href="<?=site_url()?>welcome/show_post/<?=$item['id']?>" class="">
                             <i class="fa fa-comments-o me-1"></i>
-                            <?=$item['comment_count']?> Comments
+                            <span class="comment-count"><?=$item['comment_count']?></span> Comments
                         </a>
-                        <a class="no-color" href="<?=site_url()?>post/show_post/<?=$item['id']?>">
+                        <a class="no-color" href="<?=site_url()?>welcome/show_post/<?=$item['id']?>">
                             <i class="fa fa-share me-1"></i>
                             0 Share
                         </a>
                     </div>
+                    <?php if(isset($this->session->user_data) && $this->session->user_data['is_loggedin']) { ?>
                     <hr>
 
                     <div class="idea-footer">
                         <img class="avatar-user-img small-avatar me-5" src="<?=base_url()?>assets/img/avatar.png" alt="Avatar">
-                        <input type="text" class="form-control form-control-sm colored-control" aria-label="Dollar amount (with dot and two decimal places)" placeholder="Write your comment">
-                        <!-- <div class="input-group">
-                            <input type="text" class="form-control form-control-sm" aria-label="Dollar amount (with dot and two decimal places)" placeholder="Write your comment">
-                            <span class="input-group-text">
-                                <i class="fa fa-link"></i>
-                            </span>
-                            <span class="input-group-text">
-                                <i class="fa fa-smile-o"></i>
-                            </span>
-                        </div> -->
+                        <form class="each-comment-form w-100">
+                            <input type="hidden" class="each-post-id" value="<?=$item['id']?>" >
+                            <div class="input-group input-group-merge">
+                                <input type="text" class="form-control form-control-sm colored-control comment_input" aria-label="Dollar amount (with dot and two decimal places)" placeholder="Write your comment" required>
+                               <!--  <span class="input-group-text">
+                                    <i class="fa fa-link"></i>
+                                </span>
+                                <span class="input-group-text">
+                                    <i class="fa fa-smile-o"></i>
+                                </span> -->
+                                <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-send"></i></button>
+                            </div>
+                        </form>
                     </div>
+                    <?php } ?>
                 </div>
             <?php 
             }

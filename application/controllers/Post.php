@@ -45,41 +45,41 @@ class Post extends MY_Controller {
 
 	// Not using because post can be showed without login
 	
-	public function show_post($post_id){
-        $post = $this->Post_m->get_post($post_id);
-        if(!$post)
-            redirect('/');
+	// public function show_post($post_id){
+    //     $post = $this->Post_m->get_post($post_id);
+    //     if(!$post)
+    //         redirect('/');
 
-        $post['created_at'] = $this->getTimeAgo($post['created_at']);
-        $data['post'] = $post;
-        $comments = $this->Comment_m->get_comments($post_id);
+    //     $post['created_at'] = $this->getTimeAgo($post['created_at']);
+    //     $data['post'] = $post;
+    //     $comments = $this->Comment_m->get_comments($post_id);
 
-        $main_comments = [];
-        $sub_comments = [];
+    //     $main_comments = [];
+    //     $sub_comments = [];
 
-        foreach($comments as $comment){
-        	$comment['created_at'] = $this->getTimeAgo($comment['created_at']);
-            if(!$comment['parent_comment_id']){
-            	$comment['reply_count'] = 0;
-            	// check how many reply is there
-            	foreach($comments as $sub_comment){
-            		if($sub_comment['parent_comment_id'] && $comment['id'] == $sub_comment['parent_comment_id']){
-						$comment['reply_count'] ++;
-            		}
-            	}
+    //     foreach($comments as $comment){
+    //     	$comment['created_at'] = $this->getTimeAgo($comment['created_at']);
+    //         if(!$comment['parent_comment_id']){
+    //         	$comment['reply_count'] = 0;
+    //         	// check how many reply is there
+    //         	foreach($comments as $sub_comment){
+    //         		if($sub_comment['parent_comment_id'] && $comment['id'] == $sub_comment['parent_comment_id']){
+	// 					$comment['reply_count'] ++;
+    //         		}
+    //         	}
 
-                array_push($main_comments, $comment);
-            } else {
-                array_push($sub_comments, $comment);
-            }
-        }
+    //             array_push($main_comments, $comment);
+    //         } else {
+    //             array_push($sub_comments, $comment);
+    //         }
+    //     }
 
-        $data['main_comments'] = $main_comments;
-        $data['sub_comments'] = $sub_comments;
+    //     $data['main_comments'] = $main_comments;
+    //     $data['sub_comments'] = $sub_comments;
 
-        $this->load->view('header');
-        $this->load->view('post_show', $data);
-    }
+    //     $this->load->view('header');
+    //     $this->load->view('post_show', $data);
+    // }
 
 	public function submit_comment(){
 		$req = $this->input->post();

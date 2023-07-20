@@ -32,15 +32,15 @@
     <section class="navbar-wrapper">
         <div class="d-flex justify-content-between px-4 py-3">          
             <a href="/"><img class="brand-logo" src="<?=base_url()?>assets/img/logo.png" alt="Logo"></a>
+            <div class="search-box-wrapper d-none d-lg-flex">
+                <div class="input-group mx-auto colored-control">
+                    <span class="input-group-text" id="search-addon"><i class="fa fa-search"></i></span>
+                    <input class="form-control colored-control" placeholder="Search" aria-describedby="search-addon" >
+                </div>
+            </div>
             <?php 
             if(isset($this->session->user_data) && $this->session->user_data['is_loggedin']){
             ?>
-                <div class="search-box-wrapper d-none d-lg-flex">
-                    <div class="input-group mx-auto colored-control">
-                        <span class="input-group-text" id="search-addon"><i class="fa fa-search"></i></span>
-                        <input class="form-control colored-control" placeholder="Search" aria-describedby="search-addon" >
-                    </div>
-                </div>
                 <div class="d-flex align-items-center">
                     <!-- <a href="<?=site_url()?>post/new" class="btn btn-primary">New Project</a> -->
                     <button class="btn btn-primary new-project-btn">New Project</button>
@@ -65,7 +65,12 @@
                         </ul>
                     </div>
                 </div>
-            <?php }?>
+            <?php } else { ?>
+                <div class="d-flex align-items-center">
+                    <a href="<?=site_url()?>sign_in" class="btn btn-outline-primary">Sign In</a>
+                    <a href="<?=site_url()?>sign_up" class="btn btn-primary ms-3">Sign Up</a>
+                </div>
+            <?php } ?>
         </div>
     </section>
 

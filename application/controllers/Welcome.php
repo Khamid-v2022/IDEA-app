@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends MY_Controller {
+class Welcome extends CI_Controller {
 
     public function __construct()
     {
@@ -60,7 +60,42 @@ class Welcome extends MY_Controller {
         
         $this->load->view('header');
         $this->load->view('welcome', $data);
-        // $this->load->view('footer');
+    }
+
+    public function show_post($post_id){
+        $post = $this->Post_m->get_post($post_id);
+        if(!$post)
+            redirect('/');
+
+        $post['created_at'] = $this->getTimeAgo($post['created_at']);
+        $data['post'] = $post;
+        $comments = $this->Comment_m->get_comments($post_id);
+
+        $main_comments = [];
+        $sub_comments = [];
+
+        foreach($comments as $comment){
+            $comment['created_at'] = $this->getTimeAgo($comment['created_at']);
+            if(!$comment['parent_comment_id']){
+                $comment['reply_count'] = 0;
+                // check how many reply is there
+                foreach($comments as $sub_comment){
+                    if($sub_comment['parent_comment_id'] && $comment['id'] == $sub_comment['parent_comment_id']){
+                        $comment['reply_count'] ++;
+                    }
+                }
+
+                array_push($main_comments, $comment);
+            } else {
+                array_push($sub_comments, $comment);
+            }
+        }
+
+        $data['main_comments'] = $main_comments;
+        $data['sub_comments'] = $sub_comments;
+
+        $this->load->view('header');
+        $this->load->view('post_show', $data);
     }
 
     public function my_project($page_number = 1){
@@ -112,4 +147,23 @@ class Welcome extends MY_Controller {
         $this->load->view('welcome', $data);
     }
     
+
+    public function getTimeAgo($date)
+    {
+        $timestamp = strtotime($date);  
+       
+        $strTime = array("second", "minute", "hour", "day", "month", "year");
+        $length = array("60","60","24","30","12","10");
+
+        $currentTime = time();
+        if($currentTime >= $timestamp) {
+            $diff     = time()- $timestamp;
+            for($i = 0; $diff >= $length[$i] && $i < count($length)-1; $i++) {
+            $diff = $diff / $length[$i];
+            }
+
+            $diff = round($diff);
+            return $diff . " " . $strTime[$i] . "s ago ";
+        }
+    }
 }

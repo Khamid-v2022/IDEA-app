@@ -48,15 +48,24 @@
                 <hr class="mt-5">
                 <!-- Discussion -->
                 <div class="discusstion mt-5">
-                    <div class="flex items-center mb-6">
-                        <h5 class="font-bold mb-3">Comments (<?=$post['comment_count']?>)</h5>
-                        <form id="submit_comment_form">
-                            <textarea class="form-control" rows="8" placeholder="Write a comment..." id="comment_input" required></textarea>
-                            <div class="mt-3">
-                                <button class="btn btn-outline-primary" type="submit">Post Comment</button>
-                            </div>
-                        </form>
-                    </div>
+                    <?php if(isset($this->session->user_data) && $this->session->user_data['is_loggedin']) {
+                        ?>
+                        <div class="mb-6">
+                            <h5 class="font-bold mb-3">Comments (<?=$post['comment_count']?>)</h5>
+                            <form id="submit_comment_form">
+                                <textarea class="form-control" rows="8" placeholder="Write a comment..." id="comment_input" required></textarea>
+                                <div class="mt-3">
+                                    <button class="btn btn-outline-primary" type="submit">Post Comment</button>
+                                </div>
+                            </form>
+                        </div>
+                    <?php } else { ?>
+                        <div class="d-flex mb-6">
+                            <h5 class="font-bold mb-3">Comments (<?=$post['comment_count']?>)</h5>
+                            <a class="ms-3 no-color" href="<?=site_url()?>sign_in">Sign In to comment</a>
+                        </div>
+                    <?php }?>
+                    
 
                     <div class="comments mt-4">
                         <?php 
@@ -86,8 +95,11 @@
                                             <small>3 Likes</small>
                                             <small class="ms-3"><?=$main_comment['reply_count']?> Replies</small>
                                         </div>
+                                        <?php if(isset($this->session->user_data) && $this->session->user_data['is_loggedin']) { ?>
                                         <small><a href="javascript:;" class="text-muted comment-reply-btn">Reply</a></small>
+                                        <?php } ?>
                                     </div>
+                                    <?php if(isset($this->session->user_data) && $this->session->user_data['is_loggedin']) { ?>
                                     <div class="each-comment-box d-none mt-4 ps-5">
                                         <form class="each-comment-form" data-comment_parent_id="<?=$main_comment['id']?>">
                                             <textarea class="form-control" rows="8" placeholder="Write a comment..." required></textarea>
@@ -97,6 +109,7 @@
                                             </div>
                                         </form>
                                     </div>
+                                    <?php } ?>
                                 </div>
 
                                 <?php 
@@ -123,8 +136,11 @@
                                             <div>
                                                 <small>3 Likes</small>
                                             </div>
+                                            <?php if(isset($this->session->user_data) && $this->session->user_data['is_loggedin']) { ?>
                                             <small><a href="javascript:;" class="text-muted comment-reply-btn">Reply</a></small>
+                                            <?php } ?>
                                         </div>
+                                        <?php if(isset($this->session->user_data) && $this->session->user_data['is_loggedin']) { ?>
                                         <div class="each-comment-box d-none mt-4 ps-5">
                                             <form class="each-comment-form" data-comment_parent_id="<?=$main_comment['id']?>">
                                                 <textarea class="form-control" rows="8" placeholder="Write a comment..." required></textarea>
@@ -134,6 +150,7 @@
                                                 </div>
                                             </form>
                                         </div>
+                                        <?php } ?>
                                     </div>
                                 </div>
                                 <?php
