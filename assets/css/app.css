@@ -97,7 +97,7 @@ small, .small-font {
 }
 
 .form-control.form-control-sm {
-    padding: 0.25rem 0.5rem;
+    padding: 6px 0.5rem;
     border-radius: 8px;
 }
 
@@ -138,8 +138,19 @@ small, .small-font {
     padding: 10px;
 }
 
+.modal-header {
+    padding: 24px 40px 16px 40px
+}
+.modal-body {
+    padding: 28px 40px;
+}
 .modal-content {
     border-radius: 15px;
+}
+
+hr {
+    background-color: #FAFBFC;
+    opacity: 1;
 }
 
 /* Pagenation */
@@ -183,7 +194,7 @@ small, .small-font {
 
 .main-section {
     background-color: #FAFBFC;
-    padding-top: 112px;
+    padding-top: 122px;
     padding-bottom: 30px;
     min-height: 100vh;
 }
@@ -192,15 +203,21 @@ small, .small-font {
     border: 1px solid #F1F1F1;
     border-radius: 16px;
     margin-bottom: 16px;
-    padding: 24px 30px;
+    padding: 32px 40px;
     background-color: white;
 /*    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;*/
 }
+.idea-item .idea-content {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
 .idea-item .idea-detail {
+    margin-top: 24px;
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
 }
 
 .idea-item .avatar-user-img, .comment-item .avatar-user-img {
@@ -222,7 +239,7 @@ small, .small-font {
 }
 
 .idea-item .idea-action-btns i {
-    font-size: 14px;
+    font-size: 18px;
 }
 
 

@@ -7,6 +7,7 @@
                     <h3 style="font-size: 26px"><b>Sign In</b></h3>
                     <h6 class="text-muted mt-3" style="font-size: 18px">Welcome back!</h6>
                 </div>
+                
                 <div class="my-4 d-flex justify-content-between">
                     <button class="btn btn-secondary">
                         <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -45,7 +46,7 @@
                     </button>
                 </div>
 
-                <div class="separator">
+                <div class="separator" style="margin: 38px 0;">
                     <span>OR</span>
                 </div>
 

@@ -2,8 +2,8 @@
 
 <section class="main-section">
     <div class="main-page">
-        <div class="container mx-auto px-5 flex-column" style="max-width: 700px;">
-            <h3 class="mb-3"><?=$title?></h3>  
+        <div class="container mx-auto px-0 flex-column" style="max-width: 700px;">
+            <h3 class="mb-4"><?=$title?></h3>  
             <?php 
             foreach($list as $item) { ?>
                 <div class="idea-item">
@@ -24,7 +24,7 @@
                         </span>
                     </div>
                     
-                    <div class="idea-content py-4">
+                    <div class="idea-content">
                         <h4><?=$item['title']?></h4>
                         <div class="idea-detail">
                             <?=$item['detail']?>

@@ -45,9 +45,10 @@
                     </button>
                 </div>
 
-                <div class="separator">
+                <div class="separator" style="margin: 38px 0;">
                     <span>OR</span>
                 </div>
+                
                 <!-- Email input -->
                 <div class="input-group my-4">
                     <span class="input-group-text" id="email-addon">@</span>

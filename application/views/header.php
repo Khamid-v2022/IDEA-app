@@ -80,35 +80,34 @@
 
 <!-- New Project Modal -->
 <div class="modal fade" id="new_project_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg modal-dialog-centered" >
         <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" style="font-size: 18px;">New Project</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="request-form ">
+                <div class="request-form">
                     <form id="m_new_post_form">
-
-                        <div class="mb-4">
-                            <label class="form-label" for="m_post_title">Title</label>
+                        <div class="mb-5">
+                            <label class="form-label mb-4" for="m_post_title">Title</label>
                             <input type="text" id="m_post_title" class="form-control" placeholder="Technical guru seeking marketing help for twitter clone" required />
                         </div>
 
-                        <div class="mb-4">
-                            <label class="form-label" for="m_post_detail">Description</label>
+                        <div class="mb-5">
+                            <label class="form-label mb-4" for="m_post_detail">Description</label>
                             <textarea id="m_post_detail" class="form-control" rows="10" placeholder="Describe your project, your goals, your progress, etc." required /></textarea>
                         </div>
 
                         
-                        <div class="mb-4">
-                            <label class="form-label" for="m_my_job">I am a</label>
+                        <div class="mb-5">
+                            <label class="form-label mb-4" for="m_my_job">I am a</label>
                             <select class="form-select" id="m_my_job">
                             </select>
                         </div>
                     
-                        <div class="mb-4">
-                            <label class="form-label" for="m_looking_job">Looking for a</label>
+                        <div class="mb-5">
+                            <label class="form-label mb-4" for="m_looking_job">Looking for a</label>
                             <select class="form-select" id="m_looking_job">
                             </select>
                         </div>
