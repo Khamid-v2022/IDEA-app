@@ -51,13 +51,13 @@
                 </div>
 
                 <!-- Email input -->
-                <div class="input-group my-4">
+                <div class="input-group input-group-merge my-4">
                     <span class="input-group-text" id="email-addon">@</span>
                     <input type="email" id="email" class="form-control" placeholder="Your Email" aria-describedby="email-addon" required />
                 </div>
 
                 <!-- Password input -->
-                <div class="input-group mb-4">
+                <div class="input-group input-group-merge mb-4">
                     <span class="input-group-text" id="password-addon"><i class="fa fa-lock"></i></span>
                     <input type="password" id="password" class="form-control" placeholder="Password"  aria-describedby="password-addon" required />
                 </div>

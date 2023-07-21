@@ -36,7 +36,7 @@
         <div class="d-flex justify-content-between px-4 py-3">          
             <a href="/"><img class="brand-logo" src="<?=base_url()?>assets/img/logo.png" alt="Logo"></a>
             <div class="search-box-wrapper d-none d-lg-flex">
-                <div class="input-group mx-auto colored-control">
+                <div class="input-group input-group-merge mx-auto colored-control">
                     <span class="input-group-text" id="search-addon"><i class="fa fa-search"></i></span>
                     <input class="form-control colored-control" placeholder="Search" aria-describedby="search-addon" >
                 </div>
