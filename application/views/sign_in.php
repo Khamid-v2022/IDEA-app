@@ -60,6 +60,7 @@
                 <div class="input-group input-group-merge mb-4">
                     <span class="input-group-text" id="password-addon"><i class="fa fa-lock"></i></span>
                     <input type="password" id="password" class="form-control" placeholder="Password"  aria-describedby="password-addon" required />
+                    <span class="input-group-text cursor-pointer password-visible"><i class="fa fa-eye-slash"></i></span>
                 </div>
 
                 <div class="d-flex justify-content-between">

@@ -103,8 +103,7 @@ small, .small-font {
 
 .input-group-text {
     border-radius: 15px;
-    background-color: unset;
-    border-right: none;
+    background-color: unset;    
     color: unset;
 }
 
@@ -155,6 +154,10 @@ small, .small-font {
 }
 
 
+.input-group:focus-within .form-control, .input-group:focus-within .input-group-text {
+    border-color: #86b7fe !important;
+    background-color: white;
+}
 
 .input-group-merge .form-control:not(:first-child) {
     padding-left: 0;
@@ -195,6 +198,18 @@ hr {
     background-color: #FAFBFC;
     opacity: 1;
 }
+
+
+.cursor-pointer {
+    cursor: pointer !important;
+}
+
+
+
+
+
+
+
 
 /* Pagenation */
 .page-link {

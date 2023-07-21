@@ -26,6 +26,17 @@ $(function() {
         }
         submit_post();
     })
+
+    // password visible switch
+    $(".password-visible").on("click", function(){
+        if($(this).find("i.fa").hasClass("fa-eye-slash")){
+            $(this).find("i.fa").removeClass("fa-eye-slash").addClass("fa-eye");
+            $(this).parents(".input-group").find("input[type=password]").attr("type", "text");
+        } else {
+            $(this).find("i.fa").removeClass("fa-eye").addClass("fa-eye-slash");
+            $(this).parents(".input-group").find("input[type=text]").attr("type", "password");
+        }
+    })
 });
 
 function numberWithCommas(x) {
