@@ -63,7 +63,7 @@
                             <img class="avatar-menu-img" src="<?=base_url()?>assets/img/avatar.png" alt="Avatar">
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdown_menu">
-                            <li><a class="dropdown-item" href="<?=site_url()?>welcome/my_project">My Projects</a></li>
+                            <li><a class="dropdown-item" href="<?=site_url()?>post/my_project">My Projects</a></li>
                             <li><a class="dropdown-item" href="<?=site_url()?>auth/logout">Signout</a></li>
                         </ul>
                     </div>
